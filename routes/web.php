@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware(['check.logintoken']);
 
 // 获取用户信息
 Route::get('api/userinfo','Api\UserController@getUserInfo');
@@ -40,3 +40,6 @@ Route::post('api/login','Api\UserController@login');
 
 // 个人中心
 Route::get('api/user','Api\UserController@user')->middleware(['check.login','middle']);
+
+// 资源控制器
+Route::resource('api/goods',Api\GoodsController::class);

@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\CheckLogin;
+use App\Http\Middleware\CheckLoginToken;
 use App\Http\Middleware\registertentimes;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -64,6 +65,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'middle' => registertentimes::class,
         'check.login' => CheckLogin::class,
+        'check.logintoken' => CheckLoginToken::class,
     ];
 
     /**
